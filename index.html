@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,7 +18,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      
+
     }
 
     body {
@@ -138,6 +139,7 @@
         opacity: 0;
         transform: translateY(60px);
       }
+
       100% {
         opacity: 1;
         transform: translateY(0);
@@ -148,9 +150,11 @@
       0% {
         color: #11e1f0;
       }
+
       50% {
         color: #297cff;
       }
+
       100% {
         color: #11e1f0;
       }
@@ -214,9 +218,11 @@
       0% {
         color: #11e1f0;
       }
+
       50% {
         color: #297cff;
       }
+
       100% {
         color: #11e1f0;
       }
@@ -226,9 +232,11 @@
       0% {
         color: #34d399;
       }
+
       50% {
         color: #16a34a;
       }
+
       100% {
         color: #34d399;
       }
@@ -239,9 +247,11 @@
         transform: translate3d(0, 0, 0) scale(1);
         opacity: 0.2;
       }
+
       50% {
         opacity: 0.6;
       }
+
       100% {
         transform: translate3d(60px, -120px, 0) scale(1.2);
         opacity: 0;
@@ -350,6 +360,7 @@
         filter: blur(7px);
         transform: translateY(80px);
       }
+
       100% {
         opacity: 1;
         filter: blur(0);
@@ -361,6 +372,7 @@
       0% {
         background-position: 0 0;
       }
+
       100% {
         background-position: 100% 0;
       }
@@ -419,15 +431,13 @@
       left: 0;
       z-index: 1;
       animation: 3.4s cubic-bezier(0.2, 0.5, 0.9, 0.6) 2s infinite textura;
-      background: linear-gradient(
-        90deg,
-        #297cff,
-        #11e1f0,
-        #297cff,
-        #11e1f0,
-        #297cff,
-        #11e1f0
-      );
+      background: linear-gradient(90deg,
+          #297cff,
+          #11e1f0,
+          #297cff,
+          #11e1f0,
+          #297cff,
+          #11e1f0);
       border-radius: inherit;
       border: inherit;
       background-size: 400% 200%;
@@ -565,20 +575,24 @@
     }
   </style>
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
     fbq('init', '704109862637633');
     fbq('track', 'PageView');
   </script>
   <script src="https://track4you.app/9fce975c-f492-4876-9b5b-de8816745543.js" defer></script>
 </head>
+
 <body>
   <div class="stellar-field" aria-hidden="true">
     <span class="stellar-dot"></span>
@@ -679,9 +693,7 @@
           traders profissionais.
         </p>
         <div class="cta-wrapper cta-animated">
-          <a class="cta-button"
-             href="https://t.me/+y9qrLlgD-bNiOTIx"
-             onclick="fbq('track', 'Lead');">
+          <a class="cta-button" href="https://t.me/+y9qrLlgD-bNiOTIx" onclick="fbq('track', 'Lead');">
             <span class="cta-button-text">Entre no escritório agora</span>
             <span class="cta-button-icon">★</span>
           </a>
@@ -689,14 +701,8 @@
       </div>
     </div>
   </section>
-  <script>
-window.addEventListener('load', () => {
-  const btn = document.querySelector('.elementor-button');
-  if(btn){
-    btn.href = "https://t.me/+y9qrLlgD-bNiOTIx";
-  }
-});
-</script>
+  <script> window.addEventListener('load', () => { const desktopBtn = document.querySelector('.hero__details--desktop .cta-button'); const mobileBtn = document.querySelector('.hero__details--mobile .cta-button'); const link = "https://t.me/+y9qrLlgD-bNiOTIx"; if (desktopBtn) { desktopBtn.href = link; desktopBtn.addEventListener('click', () => { fbq('track', 'Lead'); }); } if (mobileBtn) { mobileBtn.href = link; mobileBtn.addEventListener('click', () => { fbq('track', 'Lead'); }); } }); </script>
 
 </body>
+
 </html>
