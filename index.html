@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -366,28 +366,28 @@
       }
     }
 
-    .bt.selector {
+    .cta-wrapper.cta-animated {
       opacity: 0;
       animation: fadeUp 0.7s 0.4s ease forwards;
       display: inline-flex;
       justify-content: center;
     }
 
-    .hero__details--desktop .bt.selector {
+    .hero__details--desktop .cta-wrapper.cta-animated {
       justify-content: flex-start;
     }
 
-    .info__content .bt.selector {
+    .info__content .cta-wrapper.cta-animated {
       justify-content: flex-start;
     }
 
     @media (max-width: 600px) {
-      .info__content .bt.selector {
+      .info__content .cta-wrapper.cta-animated {
         justify-content: center;
       }
     }
 
-    .bt .elementor-button {
+    .cta-wrapper .cta-button {
       position: relative;
       overflow: hidden;
       display: inline-flex;
@@ -406,11 +406,11 @@
       box-shadow: 0 0 0 0 #11e1f090;
     }
 
-    .bt:hover .elementor-button {
+    .cta-wrapper:hover .cta-button {
       box-shadow: 0 0 70px -10px #11e1f090;
     }
 
-    .bt .elementor-button::before {
+    .cta-wrapper .cta-button::before {
       content: "";
       width: 100%;
       height: 100%;
@@ -434,17 +434,17 @@
       transition: all 0.8s 0.5s;
     }
 
-    .bt:hover .elementor-button::before {
+    .cta-wrapper:hover .cta-button::before {
       opacity: 0;
     }
 
-    .bt .elementor-button-text,
-    .bt .elementor-button-icon {
+    .cta-wrapper .cta-button-text,
+    .cta-wrapper .cta-button-icon {
       position: relative;
       z-index: 2;
     }
 
-    .bt .elementor-button-icon {
+    .cta-wrapper .cta-button-icon {
       font-size: 1.25rem;
       display: inline-flex;
       align-items: center;
@@ -459,7 +459,7 @@
       opacity: 0;
     }
 
-    .bt:hover .elementor-button-icon {
+    .cta-wrapper:hover .cta-button-icon {
       filter: blur(0);
       rotate: 0deg;
       opacity: 1;
@@ -467,7 +467,7 @@
     }
 
     @media (max-width: 600px) {
-      .bt .elementor-button-icon {
+      .cta-wrapper .cta-button-icon {
         position: absolute;
         top: 50%;
         right: 0;
@@ -475,13 +475,13 @@
         padding: 1rem;
       }
 
-      .bt:hover .elementor-button-icon {
+      .cta-wrapper:hover .cta-button-icon {
         right: -65px;
       }
     }
 
     @media (min-width: 600px) {
-      .bt .elementor-button-icon {
+      .cta-wrapper .cta-button-icon {
         position: absolute;
         top: 50%;
         right: 0;
@@ -489,7 +489,7 @@
         padding: 1.3rem;
       }
 
-      .bt:hover .elementor-button-icon {
+      .cta-wrapper:hover .cta-button-icon {
         right: -77px;
       }
     }
@@ -542,13 +542,13 @@
         animation-fill-mode: forwards;
       }
 
-      .bt .elementor-button {
+      .cta-wrapper .cta-button {
         border-radius: 999px;
         padding: 1.05rem 2.5rem;
         justify-content: center;
       }
 
-      .bt .elementor-button-text {
+      .cta-wrapper .cta-button-text {
         line-height: 1.2;
       }
     }
@@ -635,10 +635,10 @@
           O melhor e mais assertivo escritório de trading, eleito por mais de 2.000
           traders profissionais.
         </p>
-        <div class="bt selector">
-          <a class="elementor-button" href="#">
-            <span class="elementor-button-text">Entre no escritório agora</span>
-            <span class="elementor-button-icon">★</span>
+        <div class="cta-wrapper cta-animated">
+          <a class="cta-button" href="#">
+            <span class="cta-button-text">Entre no escritório agora</span>
+            <span class="cta-button-icon">★</span>
           </a>
         </div>
       </div>
@@ -678,13 +678,12 @@
           O melhor e mais assertivo escritório de trading, eleito por mais de 2.000
           traders profissionais.
         </p>
-        <div class="bt selector" href="https://t.me/+y9qrLlgD-bNiOTIx">
-        <a class="elementor-button"
-     href="https://t.me/+y9qrLlgD-bNiOTIx"
-     onclick="fbq('track', 'Lead');">
-
-            <span class="elementor-button-text">Entre no escritório agora</span>
-            <span class="elementor-button-icon">★</span>
+        <div class="cta-wrapper cta-animated">
+          <a class="cta-button"
+             href="https://t.me/+y9qrLlgD-bNiOTIx"
+             onclick="fbq('track', 'Lead');">
+            <span class="cta-button-text">Entre no escritório agora</span>
+            <span class="cta-button-icon">★</span>
           </a>
         </div>
       </div>
