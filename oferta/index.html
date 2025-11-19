@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page LP Panzarini</title>
+  <style>
+    :root {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color-scheme: light dark;
+      --text-color: #0f172a;
+      --accent-color: #f97316;
+      --bg-overlay: rgba(15, 23, 42, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: #020617;
+      color: var(--text-color);
+      position: relative;
+    }
+
+    .stellar-field {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+      overflow: hidden;
+      filter: blur(0.1px);
+      mix-blend-mode: screen;
+    }
+
+    .stellar-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(191, 219, 254, 0.9), rgba(14, 165, 233, 0.08));
+      opacity: 0.6;
+      animation: drift 6s linear infinite;
+    }
+
+    .stellar-dot:nth-child(3n) {
+      width: 5px;
+      height: 5px;
+      opacity: 0.5;
+      animation-duration: 8s;
+    }
+
+    .stellar-dot:nth-child(5n) {
+      width: 10px;
+      height: 10px;
+      opacity: 0.4;
+      animation-duration: 10s;
+    }
+
+    .stellar-dot:nth-child(1) {
+      top: 6%;
+      left: 12%;
+      animation-delay: 0s;
+    }
+
+    .stellar-dot:nth-child(2) {
+      top: 18%;
+      left: 65%;
+      animation-delay: 2s;
+    }
+
+    .stellar-dot:nth-child(3) {
+      top: 32%;
+      left: 25%;
+      animation-delay: 4s;
+    }
+
+    .stellar-dot:nth-child(4) {
+      top: 48%;
+      left: 80%;
+      animation-delay: 1s;
+    }
+
+    .stellar-dot:nth-child(5) {
+      top: 72%;
+      left: 15%;
+      animation-delay: 3s;
+    }
+
+    .stellar-dot:nth-child(6) {
+      top: 60%;
+      left: 55%;
+      animation-delay: 5s;
+    }
+
+    .stellar-dot:nth-child(7) {
+      top: 28%;
+      left: 82%;
+      animation-delay: 6s;
+    }
+
+    .stellar-dot:nth-child(8) {
+      top: 44%;
+      left: 5%;
+      animation-delay: 1.5s;
+    }
+
+    .stellar-dot:nth-child(9) {
+      top: 12%;
+      left: 45%;
+      animation-delay: 2.5s;
+    }
+
+    .stellar-dot:nth-child(10) {
+      top: 85%;
+      left: 40%;
+      animation-delay: 4.5s;
+    }
+
+    .stellar-dot:nth-child(11) {
+      top: 68%;
+      left: 78%;
+      animation-delay: 6.5s;
+    }
+
+    .stellar-dot:nth-child(12) {
+      top: 8%;
+      left: 90%;
+      animation-delay: 3.5s;
+    }
+
+    @keyframes fadeSection {
+      0% {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulseBlue {
+      0% {
+        color: #11e1f0;
+      }
+
+      50% {
+        color: #297cff;
+      }
+
+      100% {
+        color: #11e1f0;
+      }
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      padding: clamp(2rem, 6vw, 6rem) clamp(1.5rem, 8vw, 8rem);
+      color: #fff;
+      background-image: url("./assets/LP1-CENTRO.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #000;
+      z-index: 1;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--bg-overlay);
+      z-index: 0;
+    }
+
+    .hero__content {
+      position: relative;
+      max-width: 720px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: auto;
+      opacity: 0;
+      animation: fadeSection 0.8s ease forwards;
+      animation-delay: 0.15s;
+      animation-fill-mode: forwards;
+      padding-top: clamp(1rem, 5vw, 2rem);
+      padding-bottom: clamp(2rem, 8vw, 5rem);
+      z-index: 10;
+    }
+
+    .hero__details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .hero__details--mobile {
+      display: none;
+    }
+
+    @keyframes pulseBlue {
+      0% {
+        color: #11e1f0;
+      }
+
+      50% {
+        color: #297cff;
+      }
+
+      100% {
+        color: #11e1f0;
+      }
+    }
+
+    @keyframes pulseGreen {
+      0% {
+        color: #34d399;
+      }
+
+      50% {
+        color: #16a34a;
+      }
+
+      100% {
+        color: #34d399;
+      }
+    }
+
+    @keyframes drift {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+        opacity: 0.2;
+      }
+
+      50% {
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: translate3d(60px, -120px, 0) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .hero__title {
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #f8fafc;
+    }
+
+    .hero__title-highlight {
+      animation: pulseBlue 4s ease-in-out infinite;
+    }
+
+    .hero__eyebrow {
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: #bbf7d0;
+      animation: pulseGreen 4s ease-in-out infinite;
+      margin-top: clamp(3.5rem, 14vw, 9rem);
+    }
+
+    .hero__subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      line-height: 1.5;
+      color: #e2e8f0;
+    }
+
+    .info {
+      width: 100%;
+      padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 8vw, 6rem);
+      display: flex;
+      justify-content: center;
+      display: none;
+      opacity: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .info__content {
+      width: min(720px, 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .info--dark {
+      background: #020817;
+      color: #f8fafc;
+    }
+
+    .hero__subtitle--highlight {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      font-weight: 600;
+      color: inherit;
+    }
+
+    .hero__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      padding-left: 0;
+    }
+
+    .hero__list-item {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .hero__list-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(120deg, #297cff, #11e1f0);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.35);
+      animation: pulseBlue 4s ease-in-out infinite;
+    }
+
+    .hero__list-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: #f8fafc;
+    }
+
+    /* CTA animada */
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        filter: blur(7px);
+        transform: translateY(80px);
+      }
+
+      100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes textura {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 100% 0;
+      }
+    }
+
+    .cta-wrapper.cta-animated {
+      opacity: 0;
+      animation: fadeUp 0.7s 0.4s ease forwards;
+      display: inline-flex;
+      justify-content: center;
+    }
+
+    .hero__details--desktop .cta-wrapper.cta-animated {
+      justify-content: flex-start;
+    }
+
+    .info__content .cta-wrapper.cta-animated {
+      justify-content: flex-start;
+    }
+
+    @media (max-width: 600px) {
+      .info__content .cta-wrapper.cta-animated {
+        justify-content: center;
+      }
+    }
+
+    .cta-wrapper .cta-button {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2.75rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(90deg, #297cff, #11e1f0);
+      border-radius: 12px;
+      border: 2px solid #b7d5ff50;
+      transition: 0.7s 0.2s ease all;
+      box-shadow: 0 0 0 0 #11e1f090;
+    }
+
+    .cta-wrapper:hover .cta-button {
+      box-shadow: 0 0 70px -10px #11e1f090;
+    }
+
+    .cta-wrapper .cta-button::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      animation: 3.4s cubic-bezier(0.2, 0.5, 0.9, 0.6) 2s infinite textura;
+      background: linear-gradient(90deg,
+          #297cff,
+          #11e1f0,
+          #297cff,
+          #11e1f0,
+          #297cff,
+          #11e1f0);
+      border-radius: inherit;
+      border: inherit;
+      background-size: 400% 200%;
+      transition: all 0.8s 0.5s;
+    }
+
+    .cta-wrapper:hover .cta-button::before {
+      opacity: 0;
+    }
+
+    .cta-wrapper .cta-button-text,
+    .cta-wrapper .cta-button-icon {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-wrapper .cta-button-icon {
+      font-size: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(90deg, #297cff, #11e1f0);
+      border-radius: 12px;
+      padding: 1.1rem;
+      border: 2px solid #b7d5ff50;
+      transition: 0.7s ease all;
+      filter: blur(3px);
+      rotate: 8deg;
+      opacity: 0;
+    }
+
+    .cta-wrapper:hover .cta-button-icon {
+      filter: blur(0);
+      rotate: 0deg;
+      opacity: 1;
+      box-shadow: 0 0 70px -10px #11e1f090;
+    }
+
+    @media (max-width: 600px) {
+      .cta-wrapper .cta-button-icon {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        padding: 1rem;
+      }
+
+      .cta-wrapper:hover .cta-button-icon {
+        right: -65px;
+      }
+    }
+
+    @media (min-width: 600px) {
+      .cta-wrapper .cta-button-icon {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        padding: 1.3rem;
+      }
+
+      .cta-wrapper:hover .cta-button-icon {
+        right: -77px;
+      }
+    }
+
+    @media (max-width: 1023px) {
+      .hero {
+        background-image: url("./assets/LP1-CENTRO.jpg");
+        background-position: top center;
+      }
+
+      .hero__content {
+        margin-top: 20vh;
+      }
+
+      .info__content {
+        text-align: left;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: left;
+      }
+
+      .hero__content {
+        margin: 0;
+      }
+
+      .info__content {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .hero__details--desktop {
+        display: none;
+      }
+
+      .hero__details--mobile {
+        display: flex;
+      }
+
+      .info {
+        display: flex;
+        animation: fadeSection 0.85s ease forwards;
+        animation-delay: 0.25s;
+        animation-fill-mode: forwards;
+      }
+
+      .cta-wrapper .cta-button {
+        border-radius: 999px;
+        padding: 1.05rem 2.5rem;
+        justify-content: center;
+      }
+
+      .cta-wrapper .cta-button-text {
+        line-height: 1.2;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      body {
+        overflow: hidden;
+      }
+
+      .hero {
+        background-image: url("./assets/LP1.jpg");
+        background-position: center center;
+      }
+    }
+  </style>
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '704109862637633');
+    fbq('track', 'PageView');
+  </script>
+  <script src="https://track4you.app/9fce975c-f492-4876-9b5b-de8816745543.js" defer></script>
+</head>
+
+<body>
+  <div class="stellar-field" aria-hidden="true">
+    <span class="stellar-dot"></span>
+    <span class="stellar-dot"></span>
+    <span class="stellar-dot"></span>
+    <span class="stellar-dot"></span>
+    <span class="stellar-dot"></span>
+    <span class="stellar-dot"></span>
+    <span class="stellar-dot"></span>
+    <span class="stellar-dot"></span>
+    <span class="stellar-dot"></span>
+    <span class="stellar-dot"></span>
+    <span class="stellar-dot"></span>
+    <span class="stellar-dot"></span>
+  </div>
+  <section class="hero">
+    <div class="hero__content">
+      <p class="hero__eyebrow">Método Wins sem Gale</p>
+      <h2 class="hero__title">
+        <span class="hero__title-highlight">Consistência real</span>, decisões inteligentes
+      </h2>
+      <p class="hero__subtitle">
+        Estrutura exclusiva para traders que prezam por leitura técnica limpa,
+        risco controlado e operações com convicção.
+      </p>
+      <div class="hero__details hero__details--desktop">
+        <ul class="hero__list">
+          <li class="hero__list-item">
+            <span class="hero__list-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9.17 16.59 4.58 12l1.41-1.41 3.18 3.17 8.84-8.83L19.42 6z"></path>
+              </svg>
+            </span>
+            Sem martingale
+          </li>
+          <li class="hero__list-item">
+            <span class="hero__list-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9.17 16.59 4.58 12l1.41-1.41 3.18 3.17 8.84-8.83L19.42 6z"></path>
+              </svg>
+            </span>
+            Sem reentrada
+          </li>
+          <li class="hero__list-item">
+            <span class="hero__list-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9.17 16.59 4.58 12l1.41-1.41 3.18 3.17 8.84-8.83L19.42 6z"></path>
+              </svg>
+            </span>
+            Sem proteção
+          </li>
+        </ul>
+        <p class="hero__subtitle hero__subtitle--highlight">
+          O melhor e mais assertivo escritório de trading, eleito por mais de 2.000
+          traders profissionais.
+        </p>
+        <div class="cta-wrapper cta-animated">
+          <a class="cta-button" href="https://t.me/+y9qrLlgD-bNiOTIx" onclick="fbq('track', 'Lead');">
+            <span class="cta-button-text">Entre no escritório agora</span>
+            <span class="cta-button-icon">★</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info info--dark">
+    <div class="info__content">
+      <div class="hero__details hero__details--mobile">
+        <ul class="hero__list">
+          <li class="hero__list-item">
+            <span class="hero__list-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9.17 16.59 4.58 12l1.41-1.41 3.18 3.17 8.84-8.83L19.42 6z"></path>
+              </svg>
+            </span>
+            Sem martingale
+          </li>
+          <li class="hero__list-item">
+            <span class="hero__list-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9.17 16.59 4.58 12l1.41-1.41 3.18 3.17 8.84-8.83L19.42 6z"></path>
+              </svg>
+            </span>
+            Sem reentrada
+          </li>
+          <li class="hero__list-item">
+            <span class="hero__list-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9.17 16.59 4.58 12l1.41-1.41 3.18 3.17 8.84-8.83L19.42 6z"></path>
+              </svg>
+            </span>
+            Sem proteção
+          </li>
+        </ul>
+        <p class="hero__subtitle hero__subtitle--highlight">
+          O melhor e mais assertivo escritório de trading, eleito por mais de 2.000
+          traders profissionais.
+        </p>
+        <div class="cta-wrapper cta-animated">
+          <a class="cta-button" href="https://t.me/+y9qrLlgD-bNiOTIx" onclick="fbq('track', 'Lead');">
+            <span class="cta-button-text">Entre no escritório agora</span>
+            <span class="cta-button-icon">★</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script> window.addEventListener('load', () => { const desktopBtn = document.querySelector('.hero__details--desktop .cta-button'); const mobileBtn = document.querySelector('.hero__details--mobile .cta-button'); const link = "https://t.me/+y9qrLlgD-bNiOTIx"; if (desktopBtn) { desktopBtn.href = link; desktopBtn.addEventListener('click', () => { fbq('track', 'Lead'); }); } if (mobileBtn) { mobileBtn.href = link; mobileBtn.addEventListener('click', () => { fbq('track', 'Lead'); }); } }); </script>
+
+</body>
+
+</html>
